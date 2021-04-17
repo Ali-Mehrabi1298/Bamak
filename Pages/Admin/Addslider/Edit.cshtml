@@ -1,0 +1,51 @@
+﻿@page
+@model Bamak.Pages.Admin.Addslider.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SlidNew_produc</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SlidNew_produc.Id" />
+            <div class="form-group">
+                <label asp-for="SlidNew_produc.NewBookName" class="control-label"></label>
+                <input asp-for="SlidNew_produc.NewBookName" class="form-control" />
+                <span asp-validation-for="SlidNew_produc.NewBookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SlidNew_produc.Description" class="control-label"></label>
+                <input asp-for="SlidNew_produc.Description" class="form-control" />
+                <span asp-validation-for="SlidNew_produc.Description" class="text-danger"></span>
+            </div>
+
+
+            <div> هشدار:عکس حتما فرمتjpgباشد</div>
+            <div><label asp-for="Productse.Picture"> عکس</label></div>
+            <div>
+                <input asp-for="Productse.Picture" />
+                <span asp-validation-for="Productse.Picture"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

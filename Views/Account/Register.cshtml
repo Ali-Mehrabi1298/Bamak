@@ -1,0 +1,59 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+
+    <div class="col">
+        <div style=" margin-right: -69px;
+        color: white;
+        border: solid;
+        border-style: none;
+        padding: 91px;
+        background-image: url(/Image/Bamak_brand.jpg);
+        background-size: cover;
+      "><h1>ثبت نام</h1>
+            <div>
+                <form asp-controller="Account" asp-action="Register" method="post">
+                    <div asp-validation-summary="ModelOnly"></div>
+
+                    <label asp-for="UserName" class="col-md-2 control-label"></label>
+                    <div class="col-md-4">
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+
+                    <label asp-for="Email" class="col-md-2 control-label"></label>
+                    <div class="col-md-4">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <label asp-for="Password" class="col-md-2 control-label"></label>
+                    <div class="col-md-4">
+                        <input asp-for="Password" class="form-control" placeholder="رمز عبور باید ترکیبی از حروف واعداد باشد" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
+                    <div class="col-md-4">
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary"style=" margin: 19px;">ثبت نام</button>
+                    </div>
+                </form>
+            </div>
+
+            </div>
+    </div>
+
+
+            @section Scripts {
+                @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+            }

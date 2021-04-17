@@ -1,0 +1,44 @@
+﻿@page
+@model Bamak.Pages.Admin.Addslider.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">افزودن</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                موضوع اسلاید
+                @*@Html.DisplayNameFor(model => model.SlidNew_produc[0].NewBookName)*@
+            </th>
+            <th>
+                توضیحات
+                @*@Html.DisplayNameFor(model => model.SlidNew_produc[0].Description)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SlidNew_produc) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewBookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a class="btn btn-info" asp-page="./Edit" asp-route-id="@item.Id">ویرایش</a> |
+                <a class="btn  btn-warning "    asp-page="./Details" asp-route-id="@item.Id">اطلاعات</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">حذف</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

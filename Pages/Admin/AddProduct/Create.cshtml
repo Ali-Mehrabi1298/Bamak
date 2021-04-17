@@ -1,0 +1,73 @@
+﻿@page
+@model Bamak.Pages.Admin.AddProduct.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4" style="margin-right:20px">
+        <form method="post"enctype="multipart/form-data" style="background-color:aliceblue">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label @*asp-for="Product.Name"*@ class="control-label">نام محصول</label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label @*asp-for="Product.Description"*@ class="control-label">توضیحات</label>
+                <input asp-for="Product.Description" class="form-control" />
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label @*asp-for="Product.ItemId"*@ class="control-label">ایدی</label>
+                <input asp-for="Product.ItemId" class="form-control" />
+                <span asp-validation-for="Product.ItemId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label @*asp-for="Product.AutherName"*@ class="control-label">نام نویسنده </label>
+                <input asp-for="Product.AutherName" class="form-control" />
+                <span asp-validation-for="Product.AutherName" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Product.Pdf" /> @Html.DisplayNameFor(model => model.Product.Pdf)
+                </label>
+            </div>
+            <div class="form-group">
+                <label @*asp-for="Product.Price"*@ class="control-label">قیمت</label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Product.Free" /> @Html.DisplayNameFor(model => model.Product.Free)
+                </label>
+            </div>
+            <div> هشدار:عکس حتما فرمتjpgباشد</div>
+            <div><label @*asp-for="Productse.Picture"*@> عکس</label></div>
+            <div>
+                <input asp-for="Productse.Picture" />
+                <span asp-validation-for="Productse.Picture"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">بازگشت</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

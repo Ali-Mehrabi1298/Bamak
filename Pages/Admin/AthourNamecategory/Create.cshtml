@@ -1,0 +1,39 @@
+﻿@page
+@model Bamak.Pages.Admin.AddCategory.AthourNamecategory.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>افزودن</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CategoreAuthorName.Name" class="control-label">نام نویسنده</label>
+                <input asp-for="CategoreAuthorName.Name" class="form-control" placeholder="لطفا نام نویسنده را وارد نمایید" />
+                <span asp-validation-for="CategoreAuthorName.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoreAuthorName.Description" class="control-label">توضیحات</label>
+                <input asp-for="CategoreAuthorName.Description" class="form-control" placeholder="توضیحات" />
+                <span asp-validation-for="CategoreAuthorName.Description" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

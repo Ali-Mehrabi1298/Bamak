@@ -1,0 +1,45 @@
+﻿@using BookAudiomak.Data.Repository
+@inject IGroupRepository _GroupRepository;
+
+
+    <div >
+
+        <ul style="display:flex;list-style:none">
+
+
+            <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle"
+                   href="http://example.com" id="dropdown09" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false" style="color:yellow">موضوع کتاب</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown09" style="list-style:none;background-color:whitesmoke">
+
+                    @await Component.InvokeAsync("ProductGroupsComponent")
+
+                  
+
+                </div>
+                <hr />
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="http://example.com" id="dropdown09" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"  style="color:yellow"   >  نویسنده کتاب </a>
+                <div class="dropdown-menu" aria-labelledby="dropdown09" style="list-style:none;background-color:whitesmoke">
+
+
+
+                    @await Component.InvokeAsync("AuthorComponnent")
+
+                </div>
+         
+        </ul>
+    </div>
+
+
+
+
+
+
+
+

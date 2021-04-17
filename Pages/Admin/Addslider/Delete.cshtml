@@ -1,0 +1,42 @@
+﻿@page
+@model Bamak.Pages.Admin.Addslider.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SlidNew_produc</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SlidNew_produc.NewBookName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SlidNew_produc.NewBookName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SlidNew_produc.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SlidNew_produc.Description)
+        </dd>
+
+        <dd><label>تصویر</label></dd>
+        <dt>
+            <img src="/Image/@(Model.SlidNew_produc.NewBookName).jpg" style="max-width: 200px" />
+        </dt>
+        <dd></dd>
+        <dt>
+
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="SlidNew_produc.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

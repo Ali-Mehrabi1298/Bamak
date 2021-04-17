@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Product>
+
+
+@{
+    ViewData["Title"] = "ShowProductByGroupId";
+}
+<h1>محصولات گروه @ViewData["GroupName"]</h1>
+<hr />
+
+<div class="col-md-2">
+    @foreach (var item in Model)
+    {
+        <partial name="_BoxProduct" model="@item" />
+    }
+</div>
+

@@ -1,0 +1,55 @@
+﻿@page
+@model Bamak.Pages.Admin.AddFileee.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>صفحه اصلی</h1>
+
+<p>
+    <a class="btn btn-success " asp-page="Create"> افزودن فایل صوتی جدید</a>
+    <a  class="btn btn-warning"    asp-page="CreatePdf"  >افزودن فایل pdf</a>
+</p>
+<table class="table"style="background-color:cornsilk">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Filess[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filess[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filess[0].productName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filess[0].part)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Filess) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.part)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">ویرایش</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">اطلاعات</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">حذف</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+﻿
+@model Product
+
+@*height="160" width="160"*@
+
+
+
+<div @*class="col-sm-2"*@>
+    <div class="card">
+        <img src="/Image/@(Model.Name).jpg "   height="160" width="160" class=" card-img-top img-thumbnail" />
+        
+        <div class="card-body" @*style="display:contents"*@>
+            <h5 class="card-title"> نام محصول:  @Model.Name   </h5>
+            <div > تومان @Model.Price</div>
+            <a class="btn btn-primary " style=" color:yellow" asp-action="Detail"
+               asp-controller="Home"
+               asp-route-id="@Model.Id">جزئیات محصول</a>
+        </div>
+
+    </div>
+</div>

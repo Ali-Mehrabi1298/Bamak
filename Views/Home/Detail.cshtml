@@ -1,0 +1,74 @@
+﻿@model AddDetailView
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="rtl col-md" style="text-align:right;font:200">
+    <h1 class="display-5">@Model.product.Name</h1>
+    <hr />
+    <img src="@($"/Image/{Model.product.Name}.jpg")"
+         alt="@Model.product.Name"
+         class="img-thumbnail" />
+    <p class="py-5 text-justify col-md  " style="background-color: antiquewhite">@Model.product.Description</p>
+    <p>قیمت :   @Model.product.Price تومان</p>
+
+</div>
+
+
+<a class="btn btn-primary "
+   asp-controller="Home"
+   asp-action="AddToCart"
+   asp-route-itemId="@Model.product.Id">افزودن به سبد خرید</a>
+<br />
+<hr />
+
+
+
+
+@if (Model.product.Pdf == true)
+{
+    <h6>  برای دانلود فایل پی دی اف این کتاب بر روی این دکمه کلیک کنید </h6>
+
+    <a class="btn btn-primary" href="~/Pdf/@(Model.product.Name).pdf" download="downloude">
+        دانلود فایل pdf
+    </a>
+
+}
+<hr />
+<h6>   دانلود فایل های صوتی این کتاب</h6>
+@foreach (var S in Model.Filess)
+
+{
+    
+    <hr />
+    <div class="alert alert-primary col-md-7"style="margin: auto; margin-bottom: 171px;"  alert">
+
+
+        <div>
+            <div style="float:left">
+                <a class="btn btn-success" href="~/File/@(S.Name).mp3" download="downloude">دانلود</a>
+
+                <a class="btn btn-primary" href="~/File/@(S.Name).mp3">
+                    پخش
+                </a>
+
+            </div>
+
+
+            <ul style="display:flex;list-style:none">
+                <li>  @(S.part)-  </li>
+                <li>@(S.Description)   </li>
+            </ul>
+
+
+        </div>
+      
+      
+
+    </div>
+
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

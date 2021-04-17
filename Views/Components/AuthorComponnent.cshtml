@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Showproduct>
+
+
+
+<div style="display:block">
+    <ul @*class="list-group"*@ style="list-style:none">
+        @foreach (var item in Model)
+        {
+            <li @*class="list-group-item d-flex justify-content-between align-items-center"*@>
+                <a href="/Groups/@item.GroupId/@item.AthoureName" style="color:black">@item.AthoureName</a>
+                @*<span class="badge badge-primary badge-pill">@item.ProductCount</span>*@
+            </li>
+        }
+    </ul>
+</div>
+

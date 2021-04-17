@@ -1,0 +1,84 @@
+﻿@page
+@model Bamak.Pages.Admin.AddProduct.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a  class="btn btn-success" asp-page="Create">افزودن</a>
+</p>
+<table class="table"style="background-color:lightpink">
+    <thead>
+        <tr>
+            <th>
+                نام کتاب
+                @*@Html.DisplayNameFor(model => model.Product[0].Name)*@
+
+                @*<img src="~/Image/@(Model.Produc).jpg" height="160" width="160" class="card-img-top img-thumbnail" />*@
+
+
+
+            </th>
+            <th>
+                توضیحات
+                @*@Html.DisplayNameFor(model => model.Product[0].Description)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ItemId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].AutherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Pdf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Free)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem =>item.Name)
+              
+            </td>
+            <td>
+                
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pdf)
+
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Free)
+            </td>
+            <td style=" display: flex; padding-right: 122px;">
+                <a  class="btn  btn-primary"    asp-page="./Edit" asp-route-id="@item.Id"style="padding-left:20px">Edit</a> |
+                <a class=" btn btn-warning"  asp-page="./Details" asp-route-id="@item.Id"style="padding-left:20px">Details</a> |
+                <a  class="btn btn-outline-danger"    asp-page="./Delete" asp-route-id="@item.Id"style="padding-left:20px">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

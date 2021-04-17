@@ -1,0 +1,147 @@
+﻿
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "صفحه اصلی";
+}
+
+
+@*********component slider**********@
+<div>
+
+
+
+    @await Component.InvokeAsync("SliderComponnet")
+</div>
+
+@********* Endcomponent slider**********@
+
+
+
+<div class="row" style=" padding-right: 10px;">
+    <div class="col-md-12 " style=" padding-right:45px  ;background-color: #bf22b6;
+        display: flex;">
+
+
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">خانه</a>/
+        <a class="nav-link  text-white" asp-area="" asp-controller="Account" asp-action="Register">ثبت نام</a>/
+
+        <a class="nav-link  text-white" style="color: #e4ff2a" asp-area="" asp-controller="Home" asp-action="Privacy">تماس با ما</a>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+@*********partial*********@
+
+
+
+
+
+
+
+
+
+    <br />
+    <div class="row">
+     
+        <div class="col-md">
+            <div  style="margin:auto" role="alert">
+                <img src="/Image/111.jpg" alt="Alternate Text" class="col-md" />
+
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    @*********Endpartial*********@
+
+
+
+
+    @*******dropdown in compnnent*******@
+    <div class="row" style=" padding-right: 10px;">
+        <div class="col-md-12  " style=" padding-right: 45px;
+            background-color: #ff0057 !important; display: flex;">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <partial name="_Groups" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    @*********dropdown in compnnent**********@
+
+    <hr />
+    <hr />
+
+
+    @************ start right componnent box*****************@
+    <div class="row">
+
+        <div class="col-md-3">
+            <div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style=" background-color: #05b7e6">
+
+                        @await Component.InvokeAsync("ProductGroupsComponent")
+                    </li>
+
+                </ul>
+            </div>
+            <hr />
+
+            <div>
+
+                <div>
+                    <ul class="list-group list-group-flush"@*style="margin-right:5px"*@>
+                        <li class="list-group-item" style="  background-color: #05b7e6">
+
+                            @*@await Component.InvokeAsync("AuthorComponnent")*@
+                        </li>
+
+                    </ul>
+                </div>
+                <br />
+                <div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        @************ End right componnent box*****************@
+
+
+
+
+
+
+        @**********start product********@
+
+        <div class="col-md-6" @*style="display:contents"*@>
+
+            @*<div class="col-lg-pull-6">*@
+
+
+            @foreach (var n in Model)
+            {
+
+                <partial name="_BoxProduct" model="@n" />
+
+            }
+            @*</div>*@
+            @*</div>*@
+
+        </div>
+
+        @************End product*****************@
+
+    </div>

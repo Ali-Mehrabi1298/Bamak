@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Product>
+
+
+@{
+    ViewData["Title"] = "جستوجو";
+}
+
+<h6>نتیجه جستجو</h6>
+
+@if (Model!=null)
+{
+    @foreach (var n in Model)
+    {
+
+   
+    <partial name="_BoxProduct"  model="@n"/>
+
+    }
+}
+else
+{
+
+    @*<p style="color: beige;text-align:right;
+        color: red;
+        font-size: 22px;
+        font-style: italic;
+        padding-right: 54px;
+        background-color: white">*@
+
+        <div class="alert alert-warning" role="alert">
+          محصول مورد نظر برای شما پیدا نشد
+        </div>
+
+
+    @*</p>*@
+
+
+}

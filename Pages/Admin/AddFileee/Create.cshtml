@@ -1,0 +1,71 @@
+﻿@page
+@model Bamak.Pages.Admin.AddFileee.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>افزودن</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8"style="background-color:burlywood">
+        <form method="post" enctype="multipart/form-data" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Filess.Name" class="control-label">نام</label>
+                <input asp-for="Filess.Name" class="form-control" placeholder=" نام غیرتکراری وارد نمایید" />
+                <span asp-validation-for="Filess.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filess.Description" class="control-label"></label>
+                <input asp-for="Filess.Description" class="form-control" placeholder="توضیحات" />
+                <span asp-validation-for="Filess.Description" class="text-danger"></span>
+            </div>
+
+
+           
+
+            <div class="form-group">
+                <label asp-for="Filess.productName" class="control-label">قرارگیری در</label>
+                <input asp-for="Filess.productName" class="form-control"
+                       placeholder="نام کتاب را وارد نمایید" />
+                <span asp-validation-for="Filess.productName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filess.part" class="control-label"></label>
+                <input asp-for="Filess.part" class="form-control" />
+                <span asp-validation-for="Filess.part" class="text-danger"></span>
+            </div>
+            <hr />
+
+            <!--<div >
+
+    <input type="file" asp-for="uploudeFile" class="form-control-file" />-->
+            @*<button type="submit" class="btn btn-primary">Uploude</button>*@
+
+
+            <!--</div>-->
+
+            <div><label asp-for="Add.Pictore"></label></div>
+            <div>
+                <input asp-for="Add.Pictore" />
+                <span asp-validation-for="Add.Pictore"></span>
+            </div>   
+            <hr />  
+           
+          
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">بازگشت </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
