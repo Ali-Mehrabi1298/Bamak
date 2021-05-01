@@ -1,5 +1,4 @@
-﻿using Bamak.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,50 +15,63 @@ namespace Bamak.Controllers
             return View();
         }
 
-        [BindProperty]
-        public IFormFile uploudeFile { get; set; }
-        [BindProperty]
-        public AddProducts Add { get; set; }
-        [BindProperty]
-        public Filess Filess { get; set; }
 
+      
 
-        [HttpPost("FileUpload")]
-        public async Task<IActionResult> Index(List<IFormFile> files)
-        {
-            if (Add.Pictore?.Length > 0)
+    [HttpPost("FileUpload")]
+            public async Task<IActionResult> Index(List<IFormFile> files)
             {
-                string filePath = Path.Combine(Directory.GetCurrentDirectory(),
-                    "wwwroot",
-                    "File",
-                Path.GetExtension(Add.Pictore.FileName));
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                long size = files.Sum(f => f.Length);
+
+                var filePaths = new List<string>();
+                foreach (var formFile in files)
                 {
-                    Add.Pictore.CopyTo(stream);
+                    if (formFile.Length > 0)
+                    {
+                    // full path to file in temp location
+                    var filePath = Path.GetTempFileName(); //we are using Temp file name just for the example. Add your own file path.
+                    filePaths.Add(filePath);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await formFile.CopyToAsync(stream);
+                        }
+                    }
                 }
-            }
-            return RedirectToAction("Ali");
-        }
-
-        public IActionResult Ali()
-        {
-            return View();
 
 
-            }
+        //    if (Add.Pictore?.Length > 0)
+        //    {
+        //        string filePath = Path.Combine(Directory.GetCurrentDirectory(),
+        //            "wwwroot",
+        //            "File",
+        //        Path.GetExtension(Add.Pictore.FileName));
+        //        using (var stream = new FileStream(filePath, FileMode.Create))
+        //        {
+        //            Add.Pictore.CopyTo(stream);
+        //        }
+        //    }
+        //    return RedirectToAction("Ali");
+        //}
 
-    }
-}
-         
+        //public IActionResult Ali()
+        //{
+        //    return View();
+
+
+        //}
+
+
+
                 // process uploaded files
                 // Don't rely on or trust the FileName property without validation.
 
-    //        return Ok(new { count = files.Count, size, filePaths });
-    //        }
-    //    }
+                return Ok(new { count = files.Count, size, filePaths });
+            }
+        }
 
 
 
 
-    //}
+    }
 
