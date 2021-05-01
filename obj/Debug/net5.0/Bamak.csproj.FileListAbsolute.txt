@@ -238,8 +238,5 @@ G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Pages\Admin\
 G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Pages\Admin\Addslider\PRODUCTslider\Index.cshtml.g.cs
 G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Pages\Admin\Addslider\Createe.cshtml.g.cs
 G:\Users\ALimehrabi\source\repos\Bamak\Bamak\bin\Debug\net5.0\Pages\Properties\launchSettings.json
-G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Views\CategoryToProducts\Create.cshtml.g.cs
-G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Views\CategoryToProducts\Delete.cshtml.g.cs
-G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Views\CategoryToProducts\Details.cshtml.g.cs
-G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Views\CategoryToProducts\Edit.cshtml.g.cs
-G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Views\CategoryToProducts\Index.cshtml.g.cs
+G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Views\FileUploude\Index.cshtml.g.cs
+G:\Users\ALimehrabi\source\repos\Bamak\Bamak\obj\Debug\net5.0\Razor\Views\FileUploude\Ali.cshtml.g.cs
